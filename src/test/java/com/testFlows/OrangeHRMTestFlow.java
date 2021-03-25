@@ -1,16 +1,21 @@
 package com.testFlows;
 
 import com.base.Base;
-import org.openqa.selenium.WebDriver;
+import com.pagefunctions.LoginPage;
+import org.testng.annotations.Test;
 
 public class OrangeHRMTestFlow extends Base {
 
-    public OrangeHRMTestFlow(WebDriver driver) {
-        super(driver);
-    }
 
 
-    //TestNG framework , datadriven framework should be created in this class
+
+  @Test(enabled = true, priority = 0)
+    public void loginPage(){
+
+      LoginPage loginPage = new LoginPage(driver);
+      loginPage.successfulLogin(driver);
+
+  }
 
 
 

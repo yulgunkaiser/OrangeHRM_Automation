@@ -1,16 +1,36 @@
 package com.commonfunctions;
 
-import com.base.Base;
-import com.commonvariables.CommonVariables;
-import org.openqa.selenium.By;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class CommonFunctions {
 
 
 
-    //All reusable/tool methods or functions should be written in this class
+    public void inputTextField(WebDriver driver, WebElement inputElem, String inputValue){
 
+        try{
+           inputElem.click();
+           inputElem.clear();
+           inputElem.sendKeys(inputValue);
+        }catch (Exception e){
+            e.printStackTrace();
+            JavascriptExecutor js = (JavascriptExecutor) driver;
+            js.executeScript("arguments[0].setAttribute('value','"+inputValue+"')", inputElem);
+        }
+    }
+
+
+    public void findButtonClick(WebElement buttonElem){
+
+        try{
+            buttonElem.click();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 
 
 
